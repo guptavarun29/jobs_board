@@ -5,8 +5,9 @@
 <h5><%=job.description %></h5>
 	<h5>	<%=job.url %></h5>
 <h5>	<%=job.company %></h5></p>
+<h5>	<%=job.category.name %></h5></p>
 <% end %>
-
+<%=link_to "back" , jobs_path %>
 <%=link_to "New Job" , new_job_path %>
 
 

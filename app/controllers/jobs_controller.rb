@@ -2,7 +2,13 @@ class JobsController < ApplicationController
 before_action :find_job , except: [:create , :index , :new]  
 
   def index
+  	if params[:category].blank?
   	@jobs = Job.all
+    else
+    	
+    @category = Category.find_by(name: params[:category])
+    @jobs = @category.jobs
+    end	
   end
   def show
   end	
@@ -45,7 +51,7 @@ before_action :find_job , except: [:create , :index , :new]
   private
   
   def jobs_params
-    params.require(:job).permit(:title , :description , :company , :url)
+    params.require(:job).permit(:title , :description , :company , :url ,:category_id)
   end	
   def find_job
   	@job = Job.find(params[:id])

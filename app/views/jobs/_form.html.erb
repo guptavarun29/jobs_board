@@ -1,5 +1,6 @@
 <%= simple_form_for(@job , html:{class: "form-vertical"}) do |f| %>
   <%= f.input :title %>
+  <%= f.collection_select :category_id , Category.all, :id , :name ,{prompt: "select 1 category"} %>
   <%= f.input :description %>
   <%= f.input :url %>
   <%= f.input :company %>
