@@ -1,13 +1,22 @@
-<h3>Your Job Detail</h3>
 
-<%=@job.title %>
-	<%=@job.description %>
-		<%=@job.url %>
-	<%=@job.company %>
-	<%=@job.category.name %>
-
-	<%=  link_to "back" , "/" %>
-
-	<%=  link_to "edit" , edit_job_path(@job)%>
-
-	<%=  link_to "delete" , job_path(@job) , method: :delete , data: {confirm: "are you sure"}%>
+<div id="jobs">
+  <div class="job">
+    <h2>
+      <%= @job.title %>
+    </h2>
+    <p>
+      <%= @job.description %>
+    </p>
+    <p>
+      <%= @job.company %>
+    </p>
+    <button class="btn btn-default">
+      <%= link_to "Apply for Job", @job.url %>
+    </button>
+  </div>
+</div>
+<div id="links">
+  <%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
+  <%= link_to "Edit", edit_job_path(@job), class: "btn btn-sm btn-default" %>
+  <%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-default" %>
+</div>
